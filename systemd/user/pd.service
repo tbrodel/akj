@@ -1,0 +1,12 @@
+[Unit]
+Description=Pure Data graphical programming language
+Requires=jackd.service
+After=jackd.service
+
+[Service]
+ExecStartPre=/bin/sleep 3
+ExecStart=/usr/bin/pd -jack -alsamidi -midiindev 1 /placeholder/pd/akj.pd
+Restart=always
+
+[Install]
+RequiredBy=a2jmidid.service

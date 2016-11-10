@@ -1,0 +1,12 @@
+[Unit]
+Description=Alsa to Jack MIDI transport
+Requires=jackd.service
+After=jackd.service pd.service
+
+[Service]
+ExecStartPre=/bin/sleep 4
+ExecStart=/usr/bin/a2jmidid
+Restart=always
+
+[Install]
+RequiredBy=ardour.service

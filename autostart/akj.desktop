@@ -1,0 +1,9 @@
+[Desktop Entry]
+
+Type=Application
+Version=0.1
+Name=AkJ
+Comment=Audiokinetic Jukebox
+Exec=/placeholder/bin/akj start
+Terminal=True
+Categories=Multimedia

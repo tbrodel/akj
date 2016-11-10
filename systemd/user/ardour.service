@@ -1,0 +1,13 @@
+[Unit]
+Description=Ardour Digital Audio Workstation
+Requires=a2jmidid.service pd.service jackd.service akj.service
+After=a2jmidid.service pd.service
+Before=akj.service
+
+[Service]
+ExecPre=/bin/sleep 5
+ExecStart=/usr/bin/ardour5 /placeholder/Ardour/akj/akj.ardour
+Restart=always
+
+[Install]
+RequiredBy=akj.service

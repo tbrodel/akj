@@ -1,0 +1,34 @@
+#!/bin/sh
+
+err() {
+	echo "Usage $0 [start|stop|restart|reload]" >2
+	exit 1
+}
+
+if [ $# -ne 1 ]
+then
+	err
+fi
+
+
+case "$1" in
+	"start")
+		systemctl --user start akj
+		exit 0
+		;;
+	"stop")
+		systemctl --user stop jackd
+		exit 0
+		;;
+	"restart")
+		systemctl --user stop jackd
+		systemctl --user start akj
+		exit 0
+		;;
+	"reload")
+		systemctl --user daemon-reload
+		exit 0
+		;;
+esac
+
+err

@@ -1,0 +1,14 @@
+[Unit]
+Description=Jack Audio Connection Kit daemon
+Requires=sound.target
+After=sound.target session.target
+
+[Service]
+LimitRTPRIO=infinity
+LimitMEMLOCK=infinity
+ExecStart=/usr/bin/jackd -R -d alsa -d hw:0 -i 0 -o 2
+Restart=always
+
+[Install]
+RequiredBy=pd.service a2jmidid.service ardour.service
+WantedBy=sound.target
